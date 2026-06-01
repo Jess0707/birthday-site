@@ -11,7 +11,7 @@ export default function HeroContent() {
             initial={{ opacity: 0, x: -18 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.55 }}
-            className="absolute left-0 top-[22%] hidden max-w-[220px] md:block"
+            className="absolute left-0 top-[22%] hidden max-w-[220px] lg:block"
           >
             <p className="font-sans text-lg leading-relaxed text-[#5d4451]">
               Every memory with you lingers in my heart long after the moment is gone.
@@ -22,7 +22,7 @@ export default function HeroContent() {
             initial={{ opacity: 0, x: 18 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.7 }}
-            className="absolute right-0 top-[40%] hidden max-w-[250px] text-right md:block"
+            className="absolute right-0 top-[40%] hidden max-w-[250px] text-right lg:block"
           >
             <p className="font-sans text-lg leading-relaxed text-[#5d4451]">
               Crafted with love, softness, and all the little details that remind me of you.
@@ -53,10 +53,10 @@ export default function HeroContent() {
               transition={{ duration: 1.3, delay: 1 }}
               className="relative"
             >
-              <h1 className="font-sans text-[3.3rem] sm:text-[6.5rem] md:text-[10rem] leading-none tracking-[-0.07em] text-[#6b1d2b]">
+              <h1 className="font-sans text-[3.3rem] sm:text-[6.5rem] md:text-[6.8rem] leading-none tracking-[-0.07em] text-[#6b1d2b]">
                 Naomi
               </h1>
-              <p className="absolute right-[1%] top-[58%] text-right font-vibes text-[2.8rem] sm:right-[3%] sm:top-[34%] sm:text-[4.8rem] md:text-[8rem] leading-none text-[#8f3550]">
+              <p className="absolute right-[1%] top-[58%] text-right font-vibes text-[2.8rem] sm:right-[3%] sm:top-[34%] sm:text-[4.8rem] md:text-[5.6rem] lg:text-[6.5rem] leading-none text-[#8f3550]">
                 My Love
               </p>
             </motion.div>
@@ -67,7 +67,7 @@ export default function HeroContent() {
               </p>
               <a
                 href="#love-story"
-                className="pointer-events-auto inline-flex shrink-0 rounded-full bg-[#8f3550] px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-white shadow-[0_10px_20px_rgba(143,53,80,0.18)] transition-all duration-300 hover:scale-105 hover:bg-[#7b2943] md:hidden"
+                className="pointer-events-auto inline-flex shrink-0 rounded-full bg-[#8f3550] px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-white shadow-[0_10px_20px_rgba(143,53,80,0.18)] transition-all duration-300 hover:scale-105 hover:bg-[#7b2943] lg:hidden"
               >
                 Celebrate
               </a>

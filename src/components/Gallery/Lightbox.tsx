@@ -1,8 +1,35 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
+import { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 
 export default function Lightbox({ selectedImg, setSelectedImg }: { selectedImg: string | null, setSelectedImg: (s: string | null) => void }) {
-  return (
+  useEffect(() => {
+    if (!selectedImg) return;
+
+    const scrollY = window.scrollY;
+    const originalOverflow = document.body.style.overflow;
+    const originalPosition = document.body.style.position;
+    const originalTop = document.body.style.top;
+    const originalWidth = document.body.style.width;
+
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = '100%';
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      document.body.style.position = originalPosition;
+      document.body.style.top = originalTop;
+      document.body.style.width = originalWidth;
+      window.scrollTo(0, scrollY);
+    };
+  }, [selectedImg]);
+
+  if (typeof document === 'undefined') return null;
+
+  return createPortal((
     <AnimatePresence>
       {selectedImg && (
         <motion.div
@@ -10,7 +37,7 @@ export default function Lightbox({ selectedImg, setSelectedImg }: { selectedImg:
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={() => setSelectedImg(null)}
-          className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/95 p-4 cursor-zoom-out backdrop-blur-sm"
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95 p-4 cursor-zoom-out backdrop-blur-sm"
         >
           <button 
             className="absolute top-6 right-6 text-white hover:text-rose-400 transition-colors bg-white/10 rounded-full p-2"
@@ -33,5 +60,5 @@ export default function Lightbox({ selectedImg, setSelectedImg }: { selectedImg:
         </motion.div>
       )}
     </AnimatePresence>
-  );
+  ), document.body);
 }

@@ -44,7 +44,7 @@ export default function Envelope({ isOpen, onClick }: { isOpen: boolean, onClick
       {/* Heart Seal */}
       <motion.div 
         animate={{ scale: isOpen ? 0 : 1 }}
-        className="absolute left-1/2 top-[58%] z-30 -translate-x-1/2 -translate-y-1/2 text-rose-500 drop-shadow-lg"
+        className="absolute left-1/2 top-[45%] z-30 -translate-x-1/3 -translate-y-1/2 text-rose-500 drop-shadow-lg"
       >
         <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/95 shadow-[0_10px_25px_rgba(190,24,93,0.22)] ring-4 ring-rose-100">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">

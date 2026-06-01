@@ -1,6 +1,21 @@
 import { motion } from 'framer-motion';
 
-export default function StoryCard({ story, index }: { story: any, index: number }) {
+type Story = {
+  year: string;
+  title: string;
+  desc: string;
+  img: string;
+};
+
+export default function StoryCard({
+  story,
+  index,
+  onImageClick,
+}: {
+  story: Story;
+  index: number;
+  onImageClick: (imgSrc: string) => void;
+}) {
   const isEven = index % 2 === 0;
 
   return (
@@ -21,17 +36,25 @@ export default function StoryCard({ story, index }: { story: any, index: number 
       
       <div className={`w-full md:w-1/2 p-6 ${isEven ? 'md:pr-16' : 'md:pl-16'}`}>
         <div className="overflow-hidden rounded-2xl shadow-xl aspect-video relative group">
-          <motion.img 
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.7 }}
-            src={story.img} 
-            alt={story.title}
-            className="w-full h-full object-cover"
-            onError={(e) => {
-              (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1518199266791-5375a83164ba?q=80&w=800&auto=format&fit=crop';
-            }}
-          />
-          <div className="absolute inset-0 bg-rose-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <button
+            type="button"
+            className="block w-full h-full cursor-zoom-in focus:outline-none"
+            aria-label={`View ${story.title} image`}
+            onClick={() => onImageClick(story.img)}
+          >
+            <motion.img
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.7 }}
+              src={story.img}
+              alt={story.title}
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src =
+                  'https://images.unsplash.com/photo-1518199266791-5375a83164ba?q=80&w=800&auto=format&fit=crop';
+              }}
+            />
+            <div className="absolute inset-0 bg-rose-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+          </button>
         </div>
       </div>
     </motion.div>

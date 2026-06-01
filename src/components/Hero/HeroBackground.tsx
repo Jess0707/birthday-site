@@ -130,7 +130,7 @@ export default function HeroBackground() {
             delay={0.3}
           />
           <PolaroidFrame
-            frame={{ ...frames[2], className: 'right-[2%] top-[10%] sm:right-[8%] sm:top-[6%]' }}
+            frame={{ ...frames[2], className: 'hidden lg:block right-[2%] top-[10%] sm:right-[8%] sm:top-[6%]' }}
             y={rightY}
             delay={0.45}
           />

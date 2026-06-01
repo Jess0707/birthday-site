@@ -1,0 +1,35 @@
+import { motion } from 'framer-motion';
+
+const letterParagraphs = [
+  "My love 💓,",
+  "Hmmmmmm, I have a lot to say and honestly I dont think words will be enough but I will still say what I have to say.",
+  "Being thinking of how this relationship was orchestrated by God, how we met, for some reasons I dont know I always remember the first message I sent to you, 😂 I never would have thought we would have gone this far. You have being a very good person to me, i honestly cant appreciate you enough for your presence, since when you came into my life, you have being a blessing to me, you came into my life just at the right time, when I was down and honestly I don't know what would have happened if you did not show up...",
+  "I was genuinely surprised at how soft your heart is, i remember I went to read on Naomi in the bible and your character was nothing short of the name 🥺 I was surprised at how nice you are, 'are there still good people like this'? 😅.",
+  "I remember our first date 😂, i was actually nervous since I have never done that before i mean I have never had a one on one conversation with you before but everything just went so well, the pictures, the packaging 🤣 etc.",
+  "I can go on and on but i will stop here for now.",
+  "My love 🥺 every moment with you has truly being a blessing, the late night calls, the times we call and you arr unable to talk, the time we call and you are trying not to be loud so your mum wont disturb you 😅, i cherish all the memories we had together.",
+  "I love everything about you, your smile, your drama, your shenanigans, your beauty, your lip combo, your eyes, your nose, your lips, your physical looks and everything about you, i know you actually annoy me sometimes 🤣 but its part of why I love you, i mean what is my babe without wahala. 😅",
+  "Happy birthday to you my love, i pray for you that as you step into this new age the lord bless you, keep you, protect you and guide you, may you grow in wisdom and in stature, grow spiritually and emotionally, may you continue to radiate the glory of the lord, may your light never go dim, may the love you gave for God continue to grow more and more in Jesus name.",
+  "Happy birthday to you my love once again, i love you till eternity and I can't wait to go all out and celebrate you when we finally get married 🌚",
+  "I love you so so so so much my love.",
+  "Keep being Naomi"
+];
+
+export default function LetterReveal() {
+  return (
+    <div className="space-y-8 font-sans text-lg md:text-xl leading-relaxed text-slate-700">
+      {letterParagraphs.map((para, idx) => (
+        <motion.p
+          key={idx}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 1, delay: idx * 0.15, ease: "easeOut" }}
+          className={idx === 0 || idx >= letterParagraphs.length - 2 ? "font-vibes text-4xl md:text-5xl text-rose-600" : ""}
+        >
+          {para}
+        </motion.p>
+      ))}
+    </div>
+  );
+}
